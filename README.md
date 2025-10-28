@@ -99,6 +99,16 @@ Designed for:
 3. Use the "Validation Layer" before distributing: 2 independent data sources + 1 third-party confirm.
 
 ---
+## How to Contribute
+We welcome contributions from developers, analysts, and AI researchers.  
+To contribute:
+1. Fork this repository  
+2. Create a new branch (`feature/your-feature-name`)  
+3. Commit your changes  
+4. Push to the branch  
+5. Open a Pull Request  
+
+Please ensure your code follows the repository’s structure and includes relevant documentation.
 
 ## Contact
 
