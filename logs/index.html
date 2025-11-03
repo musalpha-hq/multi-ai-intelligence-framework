@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mus Alpha — Validation Logs</title>
+<style>
+  :root{
+    --bg:#060607;
+    --panel:#0f1112;
+    --muted:#9aa3a6;
+    --accent:#f7b42b;
+    --glass: rgba(255,255,255,0.03);
+    --card:#0b0c0d;
+    --success:#3bd671;
+    --danger:#ff6b6b;
+    --maxw:980px;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);color:#e7ecec;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+  .wrap{max-width:var(--maxw);margin:28px auto;padding:28px;}
+  header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#111 #222);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+  h1{font-size:20px;margin:0}
+  .sub{color:var(--muted);font-size:13px}
+  .panel{background:linear-gradient(180deg,var(--panel),#071013);border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:0 6px 24px rgba(2,6,8,0.6)}
+  .kpi{display:flex;gap:12px;flex-wrap:wrap}
+  .k{flex:1;min-width:180px;background:var(--glass);padding:12px;border-radius:10px}
+  .k h3{margin:0;font-size:13px;color:var(--muted)}
+  .k p{margin:6px 0 0;font-weight:600;font-size:18px}
+  .note{font-size:13px;color:var(--muted);margin-top:8px}
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
+  th{color:var(--muted);font-size:13px}
+  .status-pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
+  .ok{background:rgba(59,214,113,0.12);color:var(--success);border:1px solid rgba(59,214,113,0.12)}
+  .miss{background:rgba(255,107,107,0.08);color:var(--danger);border:1px solid rgba(255,107,107,0.08)}
+  .placeholder{color:var(--muted);font-style:italic}
+  .two-col{display:grid;grid-template-columns:1fr 320px;gap:16px}
+  .card{background:var(--card);padding:14px;border-radius:10px}
+  a.link{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+  @media(max-width:880px){
+    .two-col{grid-template-columns:1fr}
+    .kpi{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">MA</div>
+        <div>
+          <h1>Mus Alpha — Validation Logs</h1>
+          <div class="sub">Public record of timestamped signals, outcomes & methodology notes</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="sub">Launch date: <strong>Nov 27, 2025</strong></div>
+        <div class="sub">Last update: <strong><!-- UPDATE MANUALLY -->Nov 01, 2025</strong></div>
+      </div>
+    </header>
+
+    <!-- SUMMARY KPIs -->
+    <section class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong style="font-size:15px">Validation Summary</strong>
+          <div class="note">Live transparency log — records published with timestamps and evidence links.</div>
+        </div>
+        <div class="kpi" style="margin-left:auto">
+          <div class="k">
+            <h3>Total Signals (published)</h3>
+            <p id="totalSignals">22</p>
+            <div class="note">Signals recorded since framework deployment</div>
+          </div>
+          <div class="k">
+            <h3>Directional Accuracy</h3>
+            <p id="acc">73%</p>
+            <div class="note">Directional match vs outcome (updated monthly)</div>
+          </div>
+          <div class="k">
+            <h3>Open Seats (paid)</h3>
+            <p id="seats">1 / 4</p>
+            <div class="note">Paid seats limited for quality control</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="two-col">
+      <main>
+        <section class="panel card">
+          <strong>Recent Signals</strong>
+          <div class="note" style="margin-top:8px">Table lists timestamped calls, asset, thesis, outcome and proof link.</div>
+
+          <!-- TABLE: Replace rows below with real entries -->
+          <table aria-describedby="recent">
+            <thead>
+              <tr><th>Date (UTC)</th><th>Asset / Call</th><th>Thesis</th><th>Outcome</th><th>Proof</th></tr>
+            </thead>
+            <tbody id="logTable">
+              <!-- Example rows: replace / duplicate when adding real logs -->
+              <tr>
+                <td>2025-10-14 06:12</td>
+                <td>BTC — Liquidity Compression</td>
+                <td>Identified reduced exchange liquidity + large off-exchange accumulation</td>
+                <td><span class="status-pill ok">Directional hit</span></td>
+                <td><a class="link" href="#" target="_blank">timestamp post</a></td>
+              </tr>
+              <tr>
+                <td>2025-09-22 11:05</td>
+                <td>UNI — Narrative Rotation</td>
+                <td>Social volume spike with divergent on-chain flows</td>
+                <td><span class="status-pill miss">Miss / refined</span></td>
+                <td><span class="placeholder">evidence coming</span></td>
+              </tr>
+              <!-- END example rows -->
+            </tbody>
+          </table>
+
+          <div class="note" style="margin-top:12px">
+            Want a CSV export or full dataset? Contact <a class="link" href="mailto:hello@musalpha.hq">hello@musalpha.hq</a>
+          </div>
+        </section>
+
+        <section class="panel card" style="margin-top:14px">
+          <strong>Methodology — short</strong>
+          <div class="note" style="margin-top:8px">
+            Each signal is produced using the Structured Clarity Systems Framework:
+            <ul>
+              <li><strong>Behavioral patterns:</strong> funding, leverage shifts, derivatives flow</li>
+              <li><strong>On-chain flows:</strong> exchange inflows/outflows, whale wallets, accumulation</li>
+              <li><strong>Narrative momentum:</strong> social sentiment & news cycle inflection</li>
+            </ul>
+            Signals are timestamped (public post) before outcomes occur. Outcomes validated against objective criteria documented per entry.
+          </div>
+        </section>
+
+        <section class="panel card" style="margin-top:14px">
+          <strong>Changelog & Next Steps</strong>
+          <div class="note" style="margin-top:8px">
+            • Nov 27, 2025 — Logs public launch (this page).<br>
+            • Dec 15, 2025 — Publish first validation digest (30-day summary).<br>
+            • Ongoing — update log entries and add screenshots for each signal.
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <div class="card panel">
+          <strong>How to read entries</strong>
+          <div class="note" style="margin-top:8px">
+            1) Date = timestamp when the signal was posted publicly.<br>
+            2) Thesis = short rationale; full write-up linked in Proof column.<br>
+            3) Outcome = directional match vs event (hit / miss / neutral).<br>
+            4) Proof = link to public post + screenshots (when available).
+          </div>
+        </div>
+
+        <div class="card panel" style="margin-top:12px">
+          <strong>Beta / Paid seats</strong>
+          <div class="note" style="margin-top:8px">
+            Pilot access (limited): weekly brief + private channel + validation digest.<br>
+            To apply: DM <a class="link" href="https://t.me/musalpha_acc" target="_blank">Telegram @musalpha_acc</a> and include role + what you want tracked.
+          </div>
+        </div>
+
+        <div class="card panel" style="margin-top:12px">
+          <strong>Transparency pledge</strong>
+          <div class="note" style="margin-top:8px">
+            • All signals timestamped publicly before outcome.<br>
+            • Outcomes published with evidence (screenshots / data extracts).<br>
+            • Misses are logged and methodology notes appended.
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div style="margin-top:18px">Mus Alpha Accelerator — Public validation logs. Not financial advice. © 2025</div>
+    </footer>
+  </div>
+</body>
+  </html>
